@@ -20,5 +20,3 @@ databases:
     plan: pro-8gb
     databaseName: coolify
     user: coolify_user
-    password:
-      generateValue: true
