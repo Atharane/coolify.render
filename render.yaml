@@ -18,7 +18,6 @@ services:
 databases:
   - name: coolify.pg
     plan: pro-8gb
-    properties:
-      databaseName: coolify
-      user: coolify_user
-      password: ${COOLIFY_DB_PASSWORD} 
+    databaseName: coolify
+    user: coolify_user
+    password: ${COOLIFY_DB_PASSWORD} 
