@@ -1,0 +1,24 @@
+services:
+  - name: coolify
+    type: web
+    env: docker
+    plan: standard
+    dockerfilePath: ./coolify/docker/production/Dockerfile
+    envVars:
+      - key: COOLIFY_DATABASE_URL
+        fromDatabase:
+          name: coolify.pg
+          property: connectionString
+      - key: COOLIFY_JWT_SECRET
+        generateValue: true
+      - key: COOLIFY_PORT
+        value: "3000"
+    healthCheckPath: /
+    autoDeploy: true
+databases:
+  - name: coolify.pg
+    plan: pro-8gb
+    properties:
+      databaseName: coolify
+      user: coolify_user
+      password: ${COOLIFY_DB_PASSWORD} 
